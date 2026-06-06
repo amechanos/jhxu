@@ -1,12 +1,12 @@
 /* using global color variables from :root */
 
 .site-root {
-  min-height: auto;
-  background: rgba(2, 10, 25, 0.85);
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
   color: var(--text);
   overflow: hidden;
-} 
-
+}
 .container {
   width: 80%;
   margin: 0 auto;
@@ -15,6 +15,7 @@
 
 main { 
   padding-bottom: 4rem; 
+  margin: 0 auto;
   height: auto; 
 }
 
@@ -29,35 +30,88 @@ main {
   width: 100%;
 }
 
-/*----------------------------------------------------------------------------------------------*/
+footer {
+  background: linear-gradient(180deg, rgba(9, 1, 24, 0.15), rgba(1, 1, 24, 0.2));
+  backdrop-filter: blur(3px);
+  border-top: 2px solid var(--glass);
+  padding: 1rem 0;  
+}
 
 .parallax-bg {
-  display: block;
-  overflow: hidden;
-  position: absolute;
-  z-index: -2;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  min-height: 250vh; 
-  background: url("/src/assets/banner.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  will-change: transform;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    z-index: -3;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 250vh;
+    background-image: 
+      linear-gradient(rgba(3, 8, 22, 0.5), rgba(3, 8, 22, 0.8)),
+      url("src/assets/banner.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
 }
 
 .parallax-gradient {
   overflow: hidden;
   position: absolute;
-  bottom: 0;
+  bottom: -25vh;
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: -1; /* Sit above images, below text/footer content */
+  z-index: -2; /* Sit above images, below text/footer content */
   background: linear-gradient(
     to bottom,
     rgba(199, 182, 232, 0) 0%,
     rgb(16, 8, 40) 50%
   );
-  will-change: transform;
 }
+
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+  /* Pushes the canvas into the absolute background layer */
+  z-index: -1; 
+  
+  /* CRITICAL: Ensures all cursor interactions pass straight through 
+     the canvas mesh layer so text is still fully selectable/clickable */
+  pointer-events: none; 
+  
+  /* Prevents accidental canvas backgrounds from covering up the lines */
+  background: transparent;
+}
+
+.site-root::before,
+.site-root::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.site-root::before {
+  background-image:
+    radial-gradient(circle at 15% 18%, rgba(199, 179, 255, 0.08), transparent 20%),
+    radial-gradient(circle at 90% 10%, rgba(95, 88, 198, 0.10), transparent 18%),
+    radial-gradient(circle at 40% 85%, rgba(255, 255, 255, 0.02), transparent 22%);
+  opacity: 0.9;
+  filter: blur(2px);
+  animation: drift 30s ease-in-out infinite alternate;
+}
+
+.site-root::after {
+  background-image:
+    radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.02), transparent 24%),
+    radial-gradient(circle at 70% 70%, rgba(173, 161, 255, 0.025), transparent 20%);
+  opacity: 0.65;
+  animation: floatLayer 36s ease-in-out infinite alternate;
+}
+
+/*----------------------------------------------------------------------------------------------*/

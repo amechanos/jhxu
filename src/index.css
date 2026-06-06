@@ -6,7 +6,7 @@
   --accent: #c7b3ff;     /* lavender accent */
   --accent-2: #5f58c6;   /* deeper lavender */
   --text: #eef0ff;       /* primary text color */
-  --glass: rgba(255,255,255,0.03);
+  --glass: rgba(255,255,255,0.06);
   --focus: rgba(199,179,255,0.16);
 
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -33,11 +33,22 @@ html, body, #root {
 }
 
 body {
-  z-index: 0;
+  z-index: -4;
   margin: 0;
   font-size: 16px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  /* background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(3, 8, 22, 0.5), rgba(3, 8, 22, 0.8)),
+    url('src/assets/banner.png');
+  /* keep the background attached to the document so the gradient spans
+     the full content height and the image can be moved with an offset */
+  /* background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* anchor at the top and apply the scroll-driven offset for parallax */
+  /* background-position: center calc(0px + var(--scroll-y, 0px)); */ 
 }
 
 a { 

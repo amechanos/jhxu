@@ -6,20 +6,20 @@
 }
 
 .project-card { 
-    background: linear-gradient(45deg, rgba(12, 2, 41, 0.2), rgba(255,255,255,0.05)); 
+    background: linear-gradient(45deg, rgba(12, 2, 41, 0.2), rgba(91, 153, 189, 0.10));
     padding: 1rem; 
     border-radius: 12px; 
     display: flex; 
     flex-direction: column;
     gap: 1rem; 
     margin: 1rem 0;
-    border: 1px solid var(--glass);
+    border: 2px solid var(--glass);
     transition: all 0.3s cubic-bezier(.6,.2,.5,1);
 }
 
 .project-card:hover {
     transform: translateY(2px);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.18);
 }
 
 .card-body h3 { 

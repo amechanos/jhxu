@@ -17,6 +17,14 @@ export const projects = [
   },
   {
     id: 'project-3',
+    casestudy: true,
+    title: 'Tombmarker',
+    description: 'A top down dungeon crawler with a unique fold-out room mechanic and environmental combat.',
+    tech: ["Team Project", "Paper Prototype", "Affinity"],
+    url: '/work/tombmarker',
+  },
+  {
+    id: 'project-4',
     casestudy: false,
     title: 'bong',
     description: 'A casual hybrid game of endless runner and simulation made in Godot Engine.',
@@ -24,7 +32,7 @@ export const projects = [
     url: 'https://jhxu.itch.io/bingbong',
   },
   {
-    id: 'project-4',
+    id: 'project-5',
     casestudy: false,
     title: 'Splashgrounds',
     description: 'A 2D Basketball Platformer game made in Godot',
@@ -32,7 +40,7 @@ export const projects = [
     url: 'https://jhxu.itch.io/splashgrounds',
   },
   {
-    id: 'project-5',
+    id: 'project-6',
     casestudy: false,
     title: '24',
     description: 'A mathematical card game where players must use four numbers and basic operations to make 24.',
@@ -40,7 +48,7 @@ export const projects = [
     url: 'https://jhxu.itch.io/twentyfour',
   },
   {
-    id: 'project-6',
+    id: 'project-7',
     casestudy: false,
     title: 'Slugterra: Wrath of the Outback',
     description: 'An immersive and interactive website for a Slugterra fan project.',
@@ -48,7 +56,7 @@ export const projects = [
     url: 'https://slugterra-ruddy.vercel.app',
   },
   {
-    id: 'project-7',
+    id: 'project-8',
     casestudy: false,
     title: 'Chill Out!',
     description: 'A winter themed bullet hell game, submitted for the Mini Jame Gam #52 on itch.io',
