@@ -46,9 +46,9 @@ footer {
     left: 0;
     width: 100vw;
     min-height: 250vh;
-    background-image: 
+    /* background-image: 
       linear-gradient(rgba(3, 8, 22, 0.5), rgba(3, 8, 22, 0.8)),
-      url("src/assets/banner.png");
+      url("src/assets/banner.png"); */
     background-position: center;
     background-repeat: no-repeat;
     will-change: transform;

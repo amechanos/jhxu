@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import './App.css'
 import './index.css'
 
+
+import bannerUrl from './assets/banner.png';
 import Home from './home.tsx';
 import CaseStudyPage from './components/CaseStudy.tsx';
 import useCanvasCursor from './components/Cursor.tsx';  
@@ -39,7 +41,13 @@ function App() {
       <ScrollToTop />
       <div className="site-root">
 
-        <div className="parallax-bg" />
+        <div
+          className="parallax-bg"
+          style={{
+            backgroundImage: `linear-gradient(rgba(3, 8, 22, 0.5), rgba(3, 8, 22, 0.8)), url(${bannerUrl})`
+          }}
+        />
+        
         <div className="parallax-gradient" /> 
 
         <canvas id="canvas" />
