@@ -62,5 +62,13 @@ export const projects = [
     description: 'A winter themed bullet hell game, submitted for the Mini Jame Gam #52 on itch.io',
     tech: ['Godot', 'GDScript', 'Aesprite'],
     url: 'https://jhxu.itch.io/chill-out',
+  },
+  {
+    id: 'project-9',
+    casestudy: false,
+    title: 'StarForge',
+    description: 'A space-themed roguelike bullet hell game, submitted for the MAC Game Jam 2026 on itch.io',
+    tech: ['Godot', 'GDScript', 'Aesprite'],
+    url: 'https://lucyprime.itch.io/starforge',
   }
 ]
