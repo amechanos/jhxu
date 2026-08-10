@@ -38,17 +38,6 @@ body {
   font-size: 16px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
-  /* background-color: var(--bg);
-  background-image:
-    linear-gradient(rgba(3, 8, 22, 0.5), rgba(3, 8, 22, 0.8)),
-    url('src/assets/banner.png');
-  /* keep the background attached to the document so the gradient spans
-     the full content height and the image can be moved with an offset */
-  /* background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* anchor at the top and apply the scroll-driven offset for parallax */
-  /* background-position: center calc(0px + var(--scroll-y, 0px)); */ 
 }
 
 a { 
@@ -123,8 +112,6 @@ button:focus,
 .btn:focus,
 a:focus { 
   outline: none; 
-  box-shadow: 0 0 0 4px var(--focus); 
-  border-radius: 8px;
 }
 
 /* Subtle card surface utility */

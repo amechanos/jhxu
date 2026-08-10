@@ -1,45 +1,54 @@
-import { Link } from 'react-router-dom'; // Import this
-import '../styles/projects.css';
+﻿import '../styles/projects.css';
 
 type Props = {
-  casestudy: boolean;
+  id: string;
   title: string;
   description: string;
   tech: string[];
-  url?: string;
+  url: Record<string, string>;
+  isActive: boolean;
+  onToggle: () => void;
 }
 
-export default function ProjectCard({ casestudy, title, description, tech, url }: Props) {
-  const linkText = casestudy ? "View case study →" : "View project →";
-  
-  // Logic: Use <Link> for internal Case Studies, <a> for external projects
+export default function ProjectCard({ id, title, description, tech, url, isActive, onToggle }: Props) {
   return (
-    <article className="project-card">
-      <div className="card-body">
+    <article className={`project-card ${isActive ? 'active' : ''}`}>
+      <button
+        className="project-header"
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isActive}
+        aria-controls={`project-details-${id}`}
+      >
         <h3>{title}</h3>
+        <span className={`project-arrow ${isActive ? 'open' : ''}`} />
+      </button>
+
+      <div
+        id={`project-details-${id}`}
+        className={`project-details ${isActive ? 'open' : ''}`}
+      >
         <p className="muted">{description}</p>
+
         <div className="tags">
           {tech.map((t) => (
             <span key={t} className="tag">{t.trim()}</span>
           ))}
         </div>
 
-        {casestudy ? (
-          // Internal Link for React Router
-          <Link className="link" to={url ?? '/'}>
-            {linkText}
-          </Link>
-        ) : (
-          // External Link for Experiments/Hobby projects
-          <a 
-            className="link" 
-            href={url ?? '#'} 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            {linkText}
-          </a>
-        )}
+        <div className="links">
+          {Object.entries(url).map(([label, href]) => (
+            <a
+              key={label}
+              className="link"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {label} 
+            </a>
+          ))}
+        </div>
       </div>
     </article>
   );

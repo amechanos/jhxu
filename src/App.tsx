@@ -6,7 +6,6 @@ import './index.css'
 
 import bannerUrl from './assets/banner.png';
 import Home from './home.tsx';
-import CaseStudyPage from './components/CaseStudy.tsx';
 import useCanvasCursor from './components/Cursor.tsx';  
 
 // Simple component to fix the "scroll to top" issue when changing pages
@@ -54,7 +53,6 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/work/:projectId" element={<CaseStudyPage />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </div>

@@ -1,4 +1,4 @@
-import '../styles/projects.css'
+import '../styles/awards.css'
 
 export default function Awards() {
   const items = [
@@ -10,10 +10,10 @@ export default function Awards() {
   return (
     <div className="awards-list">
       {items.map((a) => (
-        <article key={a.id} className="project-card">
-          <div className="card-body">
+        <article key={a.id} className="award-card">
+          <div className="award-body">
             <h3>{a.title}</h3>
-            <p className="muted">{a.year} • {a.issuer}</p>
+            <p className="award-meta">{a.year} • {a.issuer}</p>
           </div>
         </article>
       ))}
