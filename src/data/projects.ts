@@ -69,5 +69,12 @@ export const projects: ProjectItem[] = [
     description: 'StarForge was a submission for the Monash Association of Coding (MAC) Game Jam 2026. The game is a 2D space shooter reminiscent of classic arcade games with low-res pixel graphics, designed into a rogue-like experience where players can upgrade their ship by fitting tetromino-shaped modules into a grid to form a ship, fitting the Game Jam\'s theme of Space two ways. This was a great learning experience for me as it was my first Game Jam in University, collaborating with a team of 4 including international students as well as those in different disciplines to make a game in 48 hours.',
     tech: ['Godot', 'Notion', 'Bandlab', 'Affinity'],
     url: {"Game Link": 'https://lucyprime.itch.io/starforge'},
+  },
+  {
+    id: 'project-10',
+    title: 'Last Monkey Standing',
+    description: 'Last Monkey Standing was a University project for my Game Prototyping Unit. Created by a group of 4, this project taught me the importance of collaborative development and iterative design. It is a 2D shooter-platformer where players control a disabled monkey with bullet recoil mechanics. The game was designed to be played in short bursts, with a focus on fast-paced action and strategic decision-making.',
+    tech: ['Unity', 'BandLab', 'Aesprite', 'UVCS', 'Affinity'],
+    url: {"Game Link": 'https://jhxu.itch.io/last-monkey-standing'},
   }
 ]
