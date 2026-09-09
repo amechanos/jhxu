@@ -27,6 +27,7 @@ export default function ProjectCard({ id, title, description, tech, url, isActiv
       <div
         id={`project-details-${id}`}
         className={`project-details ${isActive ? 'open' : ''}`}
+        aria-hidden={!isActive}
       >
         <p className="muted">{description}</p>
 

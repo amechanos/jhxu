@@ -69,6 +69,12 @@ footer {
   );
 }
 
+@media (max-width: 640px) {
+  .parallax-gradient {
+    bottom: -8vhvh;
+  }
+}
+
 #canvas {
   position: fixed;
   top: 0;

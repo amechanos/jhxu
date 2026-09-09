@@ -22,9 +22,10 @@ export default function Education() {
     <div className="education-list">
       {items.map((it) => (
         <article key={it.id} className="education-card">
+          <div className="education-year">{it.year}</div>
           <div className="education-body">
             <h3>{it.title}</h3>
-            <p className="education-meta">{it.subtitle} • {it.year}</p>
+            <p className="education-meta">{it.subtitle}</p>
             <p className="education-desc">{it.desc}</p>
           </div>
         </article>

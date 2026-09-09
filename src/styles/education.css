@@ -1,18 +1,47 @@
 .education-list {
+  position: relative;
   display: grid;
-  gap: 1rem;
-  padding: 0.5rem 0;
+  gap: 1.25rem;
+  padding: 0.25rem 0 0.25rem 2.25rem;
+}
+
+.education-list::before {
+  background: linear-gradient(var(--accent), rgba(199, 179, 255, 0.08));
+  content: '';
+  left: 0.5rem;
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
+  width: 1px;
 }
 
 .education-card {
-  background: linear-gradient(135deg, rgba(12, 2, 41, 0.18), rgba(74, 109, 154, 0.12));
-  border: 2px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 1rem;
+  position: relative;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: minmax(7rem, 0.35fr) 1fr;
+  background: linear-gradient(110deg, rgba(12, 2, 41, 0.28), rgba(74, 109, 154, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 1.2rem 1.3rem;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.education-card:hover {
+  border-color: rgba(199, 179, 255, 0.32);
+  transform: translateX(6px);
+}
+
+.education-year {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding-top: 0.15rem;
 }
 
 .education-body h3 {
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.4rem;
   font-size: clamp(1.05rem, 2vw, 1.25rem);
 }
 
@@ -26,4 +55,23 @@
 
 .education-desc {
   margin-top: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .education-list {
+    padding-left: 1.5rem;
+  }
+
+  .education-card {
+    display: block;
+    padding: 1rem;
+  }
+
+  .education-year {
+    margin-bottom: 0.65rem;
+  }
+
+  .education-card::before {
+    left: -1.35rem;
+  }
 }

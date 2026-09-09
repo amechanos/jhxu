@@ -1,3 +1,5 @@
+export const config = { runtime: 'edge' };
+
 type Inquiry = {
   name?: unknown;
   email?: unknown;

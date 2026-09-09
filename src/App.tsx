@@ -26,7 +26,7 @@ function App() {
       const bgElement = document.querySelector('.parallax-bg') as HTMLElement;
 
       if (bgElement) {
-        bgElement.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+        bgElement.style.transform = `translateY(${scrollPosition * 0.6}px)`;
 
       }
     };
