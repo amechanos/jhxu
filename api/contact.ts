@@ -7,6 +7,10 @@ type Inquiry = {
   website?: unknown;
 };
 
+console.log("API KEY:", process.env.RESEND_API_KEY);
+console.log("FROM:", process.env.EMAIL_FROM);
+console.log("TO:", process.env.EMAIL_TO);
+
 declare const process: {
   env: Record<string, string | undefined>;
 };

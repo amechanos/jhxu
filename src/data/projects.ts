@@ -17,21 +17,21 @@ export const projects: ProjectItem[] = [
   {
     id: 'project-2',
     title: 'Treed',
-    description: 'Treed was a project I made for my Visual Communication Design Units 3/4 Subject in highschool. Treed is a simple experience inspired by Pokemon Go, allowing users to grow a tree while they actively walk or exercise, immersing themselves with nature. The app was build around Japanese technique Shinrin-yoku, or forest bathing, which is the practice of immersing oneself in nature to improve mental health and wellbeing. The app was designed to encourage users to explore their surroundings and discover new places while also promoting mindfulness and relaxation.',
+    description: 'Treed was a project I made for my Visual Communication Design Units 3/4 Subject in highschool. Treed is a simple experience inspired by Pokémon Go, allowing users to grow a tree while they actively walk or exercise, immersing themselves with nature. The app was build around Japanese technique Shirin-yoku, or forest bathing, which is the practice of immersing oneself in nature to improve mental health and wellbeing. The app was designed to encourage users to explore their surroundings and discover new places while also promoting mindfulness and relaxation.',
     tech: ["Figma", "Illustrator", "Photoshop"],
     url: {"Live Prototype": 'https://www.figma.com/proto/7kheuXFQpp6AzW9ne5x6zd/Treed?node-id=201-8&starting-point-node-id=201%3A8&t=3WvApkWBOazM6RyF-1', "Design Process": 'https://drive.google.com/file/d/1q5ZhNQZw8FAMxsghNpJ3bakaq8X6NDP0/view?usp=sharing'},
   },
   {
     id: 'project-3',
     title: 'Tombmarker',
-    description: 'Tombmarker was a First-Year University Project for my Game Design Unit. Created by a group of 4, this project taught me the importance of collaborative development and iterative design. It is a top down dungeon crawler with a unique fold-out room mechanic and environmental combat. Having to balance the game\'s difficulty and pacing, as well as ensuring that the mechanics were intuitive and engaging, it made for a challenging but rewarding experience, ultimately earning a HD.',
+    description: 'Tombmarker was a First-Year University Project for my Game Design Unit. Created by a group of 4, this project taught me the importance of collaborative development and iterative design. It is a top-down dungeon crawler with a unique fold-out room mechanic and environmental combat. Having to balance the game\'s difficulty and pacing, as well as ensuring that the mechanics were intuitive and engaging, it made for a challenging but rewarding experience, ultimately earning a HD.',
     tech: ["Team Project", "Paper Prototype", "Affinity"],
     url: {"Printable": 'https://drive.google.com/file/d/1hM8aMOVE3bqSz_kN1rfzMSsXDbfj8FG5/view?usp=sharing', "Design Document": 'https://docs.google.com/document/d/1mn4AGFgUHrBSKMaLbQtY7QzjdiXu0JRU/edit?usp=sharing&ouid=108981163000914019498&rtpof=true&sd=true'},
   },
   {
     id: 'project-4',
     title: 'bong',
-    description: 'Bong was my first solo game that wasn\'t tied to any educational projects. It allowed me to create a narrativeless game that resonated with me. Bong as a casual game merges mechanics of a block breaker and endless runner into one, creating for a low-pressure experience that is easy to pick up and play.',
+    description: 'Bong was my first solo game that wasn\'t tied to any educational projects. It allowed me to create a game without a story that resonated with me. Bong as a casual game merges mechanics of a block breaker and endless runner into one, creating for a low-pressure experience that is easy to pick up and play.',
     tech: ['Godot', 'Photoshop', 'Illustrator', 'Bandlab'],
     url: {"Game Link": 'https://jhxu.itch.io/bingbong'},
   },
@@ -52,7 +52,7 @@ export const projects: ProjectItem[] = [
   {
     id: 'project-7',
     title: 'Slugterra: Wrath of the Outback',
-    description: 'Slugterra has been a childhood keepsake for me that I often find myself unable to let go. It is a piece of media that resonates with me deeply and thus inspired me to begin writing my own fanfiction for the series. While there are websites that host fanfiction, I wanted to create my own website that would allow me to share my work with others as well as a build-in and embedded wiki. This project was a great learning experience for me, as I had to learn how to create a website from scratch using HTML, CSS, TypeScript and React.',
+    description: 'Slugterra has been a childhood keepsake for me that I often find myself unable to let go. It is a piece of media that resonates with me deeply and thus inspired me to begin writing my own fanfiction for the series. While there are websites that host fanfiction, I wanted to create my own website that would allow me to share my work with others as well as a built-in and embedded wiki. This project was a great learning experience for me, as I had to learn how to create a website from scratch using HTML, CSS, TypeScript and React. (Fanfiction is discontinued as of 2026 September, you can still read the surviving chapters!))',
     tech: ['HTML', 'CSS', 'TypeScript', 'React'],
     url: {"Website": 'https://slugterra-ruddy.vercel.app'},
   },
@@ -76,5 +76,12 @@ export const projects: ProjectItem[] = [
     description: 'Last Monkey Standing was a University project for my Game Prototyping Unit. Created by a group of 4, this project taught me the importance of collaborative development and iterative design. It is a 2D shooter-platformer where players control a disabled monkey with bullet recoil mechanics. The game was designed to be played in short bursts, with a focus on fast-paced action and strategic decision-making.',
     tech: ['Unity', 'BandLab', 'Aesprite', 'UVCS', 'Affinity'],
     url: {"Game Link": 'https://jhxu.itch.io/last-monkey-standing'},
+  },
+  {
+    id:"project-11",
+    title: "The Unsighted",
+    description: "The Unsighted was a University project for my Game Prototyping Unit. Created by a group of 4, this project taught me valuable lessons in scoping and audio design. It is a 3D horror prototype where players must control their sense of sight. Developing the game highlighted the importance of realistic project scope, updating map designs to match core mechanics, and using creative ambient soundscapes—such as household recordings enhanced with reverb—to build an eerie atmosphere. ",
+    tech: ["Unity", "BandLab", "UVCS", "Affinity"],
+    url: {"Game Link": 'https://jhxu.itch.io/unsighted'},
   }
 ]
