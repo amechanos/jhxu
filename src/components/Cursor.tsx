@@ -1,6 +1,7 @@
 // @ts-nocheck
 
 import { useEffect } from 'react';
+import gunSound from '../assets/gun.wav';
 
 const useCanvasCursor = () => {
   function Oscillator(e) {
@@ -98,6 +99,9 @@ const useCanvasCursor = () => {
       1 == e.touches.length &&
         ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY));
     }
+    mouseMoveHandler = c;
+    touchMoveHandler = c;
+    touchStartHandler = l;
     (document.removeEventListener('mousemove', onMousemove),
       document.removeEventListener('touchstart', onMousemove),
       document.addEventListener('mousemove', c),
@@ -114,10 +118,10 @@ const useCanvasCursor = () => {
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       ctx.globalCompositeOperation = 'lighter';
 
-      let rawHue = f.update();
-      let coolHue = Math.round((rawHue % 180) + 120);
-      ctx.strokeStyle = 'hsla(' + coolHue + ',50%,50%,0.05)';
-      
+      // Drift between ship cove (~218) and lavender (~282) to match the site palette
+      const hue = Math.round(f.update());
+      ctx.strokeStyle = 'hsla(' + hue + ',75%,58%,0.10)';
+
       // Thickness controlled by E.lineWidth
       ctx.lineWidth = E.lineWidth;
       
@@ -126,7 +130,7 @@ const useCanvasCursor = () => {
         e.draw();
       }
       ctx.frame++;
-      window.requestAnimationFrame(render);
+      animationFrame = window.requestAnimationFrame(render);
     }
   }
 
@@ -140,14 +144,18 @@ const useCanvasCursor = () => {
     e = 0,
     pos = {},
     lines = [],
+    animationFrame,
+    mouseMoveHandler,
+    touchMoveHandler,
+    touchStartHandler,
     E = {
       debug: true,
-      friction: 0.4,
-      trails: 10,
-      size: 50,
-      dampening: 0.25,
-      tension: 0.98,
-      lineWidth: 10,        // ← Change thickness here
+      friction: 0.45,
+      trails: 3,
+      size: 18,
+      dampening: 0.45,
+      tension: 0.9,
+      lineWidth: 24,       // ← Change thickness here
     };
 
   function Node() {
@@ -159,7 +167,13 @@ const useCanvasCursor = () => {
 
   const renderCanvas = function () {
     const canvas = document.getElementById('canvas');
+    if (!canvas) {
+      throw new Error('Cursor canvas element #canvas was not found.');
+    }
     ctx = canvas.getContext('2d');
+    if (!ctx) {
+      throw new Error('Unable to create a 2D context for the cursor canvas.');
+    }
 
     // Push canvas behind content
     canvas.style.position = 'fixed';
@@ -168,52 +182,87 @@ const useCanvasCursor = () => {
     canvas.style.zIndex = '-1';
     canvas.style.pointerEvents = 'none';
   
-    canvas.style.filter = 'blur(20px)';   // ← add this
+    canvas.style.filter = 'blur(3px)';   // ← add this
 
     ctx.running = true;
 
     ctx.frame = 1;
     f = new Oscillator({
       phase: Math.random() * 2 * Math.PI,
-      amplitude: 85,
-      frequency: 0.0015,
-      offset: 285,
+      amplitude: 32,
+      frequency: 0.0035,
+      offset: 250,
     });
     document.addEventListener('mousemove', onMousemove);
     document.addEventListener('touchstart', onMousemove);
     document.body.addEventListener('orientationchange', resizeCanvas);
     window.addEventListener('resize', resizeCanvas);
-    window.addEventListener('focus', () => {
+    const onFocus = () => {
       if (!ctx.running) {
         ctx.running = true;
         render();
       }
-    });
-    window.addEventListener('blur', () => {
-      ctx.running = true;
-    });
+    };
+    const onBlur = () => {
+      ctx.running = false;
+    };
+    window.addEventListener('focus', onFocus);
+    window.addEventListener('blur', onBlur);
     resizeCanvas();
-  };
-
-  useEffect(() => {
-    renderCanvas();
 
     return () => {
       ctx.running = false;
+      if (animationFrame !== undefined) {
+        window.cancelAnimationFrame(animationFrame);
+      }
       document.removeEventListener('mousemove', onMousemove);
       document.removeEventListener('touchstart', onMousemove);
+      document.removeEventListener('mousemove', mouseMoveHandler);
+      document.removeEventListener('touchmove', touchMoveHandler);
+      document.removeEventListener('touchstart', touchStartHandler);
       document.body.removeEventListener('orientationchange', resizeCanvas);
       window.removeEventListener('resize', resizeCanvas);
-      window.removeEventListener('focus', () => {
-        if (!ctx.running) {
-          ctx.running = true;
-          render();
-        }
-      });
-      window.removeEventListener('blur', () => {
-        ctx.running = true;
-      });
+      window.removeEventListener('focus', onFocus);
+      window.removeEventListener('blur', onBlur);
     };
+  };
+
+  useEffect(() => {
+    return renderCanvas();
+  }, []);
+
+  useEffect(() => {
+    const shot = new Audio(gunSound);
+    shot.preload = 'auto';
+
+    const onClick = (ev) => {
+      if (ev.button !== 0) return;
+      const cursor = getComputedStyle(ev.target).cursor;
+      if (/,\s*pointer$/.test(cursor)) return;
+
+      const sound = shot.cloneNode();
+      sound.volume = 0.4;
+      sound.play().catch(() => {});
+
+      const hole = document.createElement('div');
+      const size = 11;
+      hole.style.cssText =
+        'position:absolute;pointer-events:none;z-index:9999;border-radius:50%;' +
+        `width:${size}px;height:${size}px;` +
+        `left:${ev.pageX - size / 2}px;top:${ev.pageY - size / 2}px;` +
+        'background:radial-gradient(circle,#000 0%,#000 45%,#1a1a22 70%,rgba(60,60,75,0.65) 100%);' +
+        'box-shadow:0 0 0 1px rgba(255,255,255,0.12),inset 0 1px 1px rgba(255,255,255,0.25);' +
+        'transition:opacity 1.5s ease-out;opacity:1;';
+      document.body.appendChild(hole);
+
+      setTimeout(() => {
+        hole.style.opacity = '0';
+        setTimeout(() => hole.remove(), 1500);
+      }, 3000);
+    };
+
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
   }, []);
 };
 

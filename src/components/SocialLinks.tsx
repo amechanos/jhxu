@@ -35,7 +35,7 @@ export default function SocialLinks({ className = '' }: { className?: string }) 
             </a>
         </li>
         <li>
-            <a href="https://github.com/jhxu07" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/amechanos" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener noreferrer">
                 <img src={github} alt="" />
             </a>
         </li>

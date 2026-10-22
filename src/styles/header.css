@@ -32,7 +32,7 @@
 
 .brand-link { text-decoration: none; color: inherit; display: inline-block }
 .brand-link:focus { outline: none; box-shadow: 0 0 0 4px var(--focus); border-radius: 8px }
-.brand-link .brand { cursor: pointer }
+.brand-link .brand { cursor: var(--cursor-pointer) }
 .brand h2 { font-size: 1.25rem; }
 
 .logo {
@@ -74,7 +74,7 @@
   border: none;
   padding: 0.35rem;
   margin-left: 0.5rem;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
 }
 
 .hamburger .bar {

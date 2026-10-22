@@ -35,7 +35,7 @@
     padding: 1.15rem 1.25rem;
     margin: 0;
     color: inherit;
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
     text-align: left;
 }
 
