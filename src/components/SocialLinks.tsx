@@ -3,6 +3,8 @@ import youtube from '../assets/youtube.svg';
 import instagram from '../assets/instagram.svg';
 import linkedin from '../assets/linkedin.svg';
 import discord from '../assets/discord.svg';
+import itch from '../assets/itch.svg';
+import github from '../assets/github.svg';
 
 export default function SocialLinks({ className = '' }: { className?: string }) {
   return (
@@ -25,6 +27,16 @@ export default function SocialLinks({ className = '' }: { className?: string }) 
         <li>
             <a href="https://youtube.com/@jhxu" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener noreferrer">
                 <img src={youtube} alt="" />
+            </a>
+        </li>
+        <li>
+            <a href="https://jhxu.itch.io/" aria-label="Itch.io" title="Itch.io" target="_blank" rel="noopener noreferrer">
+                <img src={itch} alt="" />
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/jhxu07" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener noreferrer">
+                <img src={github} alt="" />
             </a>
         </li>
     </ul>
