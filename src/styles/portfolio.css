@@ -1,61 +1,57 @@
 .portfolio-switcher {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 2.25rem;
+    padding: 0.35rem;
     width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: rgba(4, 8, 24, 0.28);
 }
 
 .portfolio-root {
     height: auto;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
 }
 
 .switch-btn {
-    flex: 1 1 0;
-    min-width: 0;
-    height: 50px;
-    padding: 0.5rem 1.25rem;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--muted-text, #cfcfcf);
-    background: rgba(28, 17, 53, 0.3);
-    border-radius: 0.5rem;
-    display: inline-flex;
     align-items: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: var(--muted);
+    display: inline-flex;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    gap: 0.6rem;
     justify-content: center;
-    transition: background-color 180ms ease, color 180ms ease, transform 180ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease, border-color 180ms ease;
-}
-
-/* round top-left of first and top-right of last (emphasised) */
-.switch-btn:first-child {
-    border-top-left-radius: 2rem;
-}
-.switch-btn:last-child {
-    border-top-right-radius: 2rem;
+    min-height: 48px;
+    padding: 0.65rem 1rem;
+    transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
 }
 
 .switch-btn.active {
-    background: var(--accent);
-    color: #fff;
-    box-shadow: 0 10px 30px rgba(2,6,23,0.35);
-    transform: translateY(-2px) scale(1.01);
+    background: rgba(199, 179, 255, 0.12);
+    border-color: rgba(199, 179, 255, 0.24);
+    color: var(--text);
 }
 
 .switch-btn:hover {
-    color: #fff;
-    background: var(--accent);
-    border: 1px solid var(--glass);
-    box-shadow: 0 14px 40px rgba(2,6,23,0.45);
-}
-
-.switch-btn:active {
-    border: 2px solid var(--glass);
-    box-shadow: inset 0 3px 8px rgba(0,0,0,0.2);
+    color: var(--accent);
 }
 
 .switch-btn:focus-visible {
-    border: 2px solid var(--glass);
-    outline: 3px solid rgba(255,255,255,0.12);
+    outline: 2px solid var(--accent);
     outline-offset: 4px;
+}
+
+.switch-index {
+    color: var(--accent);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
 }
 
 /* fade-in for newly mounted view content */
@@ -66,4 +62,22 @@
 @keyframes portfolioFade {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+    .portfolio-root {
+        padding-bottom: 2rem;
+        padding-top: 2rem;
+    }
+
+    .portfolio-switcher {
+        margin-bottom: 1.5rem;
+    }
+
+    .switch-btn {
+        flex-direction: column;
+        gap: 0.15rem;
+        min-height: 54px;
+        padding: 0.5rem 0.25rem;
+    }
 }

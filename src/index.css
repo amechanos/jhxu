@@ -6,7 +6,7 @@
   --accent: #c7b3ff;     /* lavender accent */
   --accent-2: #5f58c6;   /* deeper lavender */
   --text: #eef0ff;       /* primary text color */
-  --glass: rgba(255,255,255,0.03);
+  --glass: rgba(255,255,255,0.06);
   --focus: rgba(199,179,255,0.16);
 
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -33,7 +33,7 @@ html, body, #root {
 }
 
 body {
-  z-index: 0;
+  z-index: -4;
   margin: 0;
   font-size: 16px;
   line-height: 1.55;
@@ -112,8 +112,6 @@ button:focus,
 .btn:focus,
 a:focus { 
   outline: none; 
-  box-shadow: 0 0 0 4px var(--focus); 
-  border-radius: 8px;
 }
 
 /* Subtle card surface utility */

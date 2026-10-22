@@ -8,7 +8,7 @@ export function Media() {
                 <iframe
                     width="560"
                     height="315"
-                    src="https://www.youtube.com/embed/og95-Yx43I0?si=The6bmjYkl3_Jwlo"
+                    src="https://www.youtube.com/embed/KLCHe5OoQjk?si=kPtktTcwFeTY7tJs"
                     title="YouTube video player"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

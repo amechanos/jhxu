@@ -1,0 +1,66 @@
+.awards-list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+}
+
+.award-card {
+  align-items: center;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 4.5rem 1fr auto;
+  background: linear-gradient(110deg, rgba(12, 2, 41, 0.28), rgba(74, 109, 154, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  min-height: 6rem;
+  padding: 1rem 1.25rem;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.award-card:hover {
+  border-color: rgba(199, 179, 255, 0.32);
+  transform: translateX(3px);
+}
+
+.award-year {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.award-body h3 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+
+.award-meta {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.award-mark {
+  align-items: center;
+  border: 1px solid rgba(199, 179, 255, 0.22);
+  border-radius: 50%;
+  color: var(--accent);
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2rem;
+  justify-content: center;
+  width: 2rem;
+}
+
+@media (max-width: 640px) {
+  .award-card {
+    gap: 0.7rem;
+    grid-template-columns: 3.6rem 1fr;
+    padding: 1rem;
+  }
+
+  .award-mark {
+    display: none;
+  }
+}

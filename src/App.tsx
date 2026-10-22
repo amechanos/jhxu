@@ -3,9 +3,10 @@ import { useEffect } from 'react';
 import './App.css'
 import './index.css'
 
-// Import your pages
+
+import bannerUrl from './assets/banner.png';
 import Home from './home.tsx';
-import CaseStudyPage from './components/CaseStudy.tsx';
+import useCanvasCursor from './components/Cursor.tsx';  
 
 // Simple component to fix the "scroll to top" issue when changing pages
 function ScrollToTop() {
@@ -13,22 +14,20 @@ function ScrollToTop() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  return null;
+  return null;  
 }
 
 function App() {
+  useCanvasCursor();
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const bgElement = document.querySelector('.parallax-bg') as HTMLElement;
-      const gradientElement = document.querySelector('.parallax-gradient') as HTMLElement;
 
-      if (bgElement && gradientElement) {
-        bgElement.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-        // Your logic for the gradient
-        const targetTranslate = scrollPosition * 0.25;
-        const clampedTranslate = Math.min(targetTranslate, 0); // Ensure no positive translation
-        gradientElement.style.transform = `translateY(${clampedTranslate}px)`;
+      if (bgElement) {
+        bgElement.style.transform = `translateY(${scrollPosition * 0.6}px)`;
+
       }
     };
 
@@ -40,16 +39,20 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="site-root">
-       
-        <div className="parallax-bg"></div>
-        <div className="parallax-gradient"></div>
+
+        <div
+          className="parallax-bg"
+          style={{
+            backgroundImage: `linear-gradient(rgba(3, 8, 22, 0.5), rgba(3, 8, 22, 0.8)), url(${bannerUrl})`
+          }}
+        />
         
+        <div className="parallax-gradient" /> 
+
+        <canvas id="canvas" />
+
         <Routes>
-          
           <Route path="/" element={<Home />} />
-          
-          <Route path="/work/:projectId" element={<CaseStudyPage />} />
-          
           <Route path="*" element={<Home />} />
         </Routes>
       </div>
